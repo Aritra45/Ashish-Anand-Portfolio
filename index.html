@@ -11,6 +11,27 @@
 </head>
 
 <body>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const switchBtn = document.getElementById("themeToggle");
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.body.classList.toggle("light-mode", savedTheme === "light");
+
+    // Set switch thumb position
+    if (savedTheme === "light") {
+      switchBtn.classList.add("active");
+    }
+
+    // Toggle theme on click
+    switchBtn.addEventListener("click", () => {
+      const isLight = document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+  });
+</script>
+
   <!-- Loader -->
   <div id="ftco-loader" class="show fullscreen">
     <svg class="circular" width="48" height="48">
@@ -28,6 +49,11 @@
         <div></div>
         <div></div>
       </div>
+      <div class="switch-btn" id="themeToggle">
+  <div class="switch-thumb"></div>
+</div>
+
+
       <ul id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -44,7 +70,7 @@
       <source src="assets/video-bg.mp4" type="video/mp4" />
     </video>
     <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="hero-content" style="color: white;">
       <h1>Hi, I'm <span class="typed-text"></span><span class="cursor"></span></h1>
       <p>Crafting visuals that tell your story with precision & style.</p><br>
       <a href="#work" class="btn">Explore Work</a>
@@ -176,7 +202,7 @@
 
   <!-- Footer -->
   <footer>
-    <p style="margin: 0 0 10px; font-size: 1rem;">
+    <p style="margin: 0 0 10px; font-size: 1rem; color: white;">
       Visitors: <span id="visitor-count" style="color: #ffbd39; font-weight: 700;">0</span>
     </p>
     <div class="socials">
@@ -184,7 +210,7 @@
       <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-    <p>© Copyright &copy;
+    <p style="color: white;">© Copyright &copy;
       <script>document.write(new Date().getFullYear());</script> All rights reserved | This portfolio is made with
       <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
         href="https://www.linkedin.com/in/aritra-deb-bb16131a3/" target="_blank" style="color: #ffbd39; font-weight: bold;">Aritra Deb</a>
