@@ -93,6 +93,7 @@ nav ul {
     display: flex;
     gap: 2rem;
     list-style: none;
+    margin-left: 60%;
 }
 
 nav ul li a {
@@ -546,6 +547,18 @@ a {
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+}
+
+.switch-btn .sun-icon,
+.switch-btn .moon-icon {
+    font-size: 14px;
+    color: #fff;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .switch-btn .switch-thumb {
@@ -557,6 +570,15 @@ a {
     top: 3px;
     left: 3px;
     transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+body.light-mode .sun-icon {
+    color: #000;
+}
+
+body.light-mode .moon-icon {
+    color: #fff;
 }
 
 body.light-mode .switch-btn {
@@ -566,3 +588,4 @@ body.light-mode .switch-btn {
 body.light-mode .switch-btn .switch-thumb {
     transform: translateX(24px);
 }
+

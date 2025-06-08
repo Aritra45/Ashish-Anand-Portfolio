@@ -7,30 +7,31 @@
   <title>Ashish Anand – Video Editor & Motion Designer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const switchBtn = document.getElementById("themeToggle");
+    document.addEventListener("DOMContentLoaded", () => {
+      const switchBtn = document.getElementById("themeToggle");
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    document.body.classList.toggle("light-mode", savedTheme === "light");
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.body.classList.toggle("light-mode", savedTheme === "light");
 
-    // Set switch thumb position
-    if (savedTheme === "light") {
-      switchBtn.classList.add("active");
-    }
+      // Set switch thumb position
+      if (savedTheme === "light") {
+        switchBtn.classList.add("active");
+      }
 
-    // Toggle theme on click
-    switchBtn.addEventListener("click", () => {
-      const isLight = document.body.classList.toggle("light-mode");
-      localStorage.setItem("theme", isLight ? "light" : "dark");
+      // Toggle theme on click
+      switchBtn.addEventListener("click", () => {
+        const isLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+      });
     });
-  });
-</script>
+  </script>
 
   <!-- Loader -->
   <div id="ftco-loader" class="show fullscreen">
@@ -49,9 +50,7 @@
         <div></div>
         <div></div>
       </div>
-      <div class="switch-btn" id="themeToggle">
-  <div class="switch-thumb"></div>
-</div>
+      
 
 
       <ul id="nav-links">
@@ -61,6 +60,12 @@
         <!-- <li><a href="#testimonials">Testimonials</a></li> -->
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="switch-btn" id="themeToggle">
+  <i class="fas fa-sun sun-icon"></i>
+  <i class="fas fa-moon moon-icon"></i>
+  <div class="switch-thumb"></div>
+</div>
+
     </nav>
   </header>
 
@@ -101,7 +106,7 @@
       Explore My Work
     </a>
   </div> -->
-    
+
   </section>
 
   <!-- Work -->
@@ -124,12 +129,12 @@
         </a>
       </div>
     </div>
-    
+
   </section>
 
 
-    <center> <a href="assets/Ashish_Resume.pdf" download class="btn" data-aos="fade-up" data-aos-delay="200">Download
-        Resume</a></center>
+  <center> <a href="assets/Ashish_Resume.pdf" download class="btn" data-aos="fade-up" data-aos-delay="200">Download
+      Resume</a></center>
 
   <!-- Testimonials
   <section id="testimonials" class="testimonials">
@@ -210,10 +215,11 @@
       <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-    <p style="color: white;">© Copyright &copy;
+    <p style="color: white;">&copy;
       <script>document.write(new Date().getFullYear());</script> All rights reserved | This portfolio is made with
       <i class="icon-heart color-danger" aria-hidden="true"></i> by <a
-        href="https://www.linkedin.com/in/aritra-deb-bb16131a3/" target="_blank" style="color: #ffbd39; font-weight: bold;">Aritra Deb</a>
+        href="https://www.linkedin.com/in/aritra-deb-bb16131a3/" target="_blank"
+        style="color: #ffbd39; font-weight: bold;">Aritra Deb</a>
     </p>
 
 
