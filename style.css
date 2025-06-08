@@ -12,16 +12,20 @@
     --text-color: #ffffff;
     --accent-color: #00ffff;
     --accent-light: white;
-    --highlight-color: #ffbd39;
+    --highlight-color: #00ffff;
+    --icon-color: #00ffff;
+    --btn-hover: #02c5c5;
     --card-bg: #161b22;
 }
 
 body.light-mode {
     --bg-color: #ffffff;
     --text-color: #000000;
-    --accent-color: #D4AF37; /* gold */
-    --accent-light: #f5e79e; /* light gold */
-    --highlight-color: #b8860b; /* dark goldenrod */
+    --accent-color: #034E2E; /* gold */
+    --accent-light: #059959; /* light gold */
+    --highlight-color: #034E2E; /* dark goldenrod */
+    --icon-color: #059959;
+    --btn-hover: #059959;
     --card-bg: #f0f0f0;
 }
 
@@ -86,7 +90,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--icon-color);
 }
 
 nav ul {
@@ -104,7 +108,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--accent-color);
+    color: var(--icon-color);
 }
 
 .menu-toggle {
@@ -178,7 +182,7 @@ nav ul li a:hover {
 /* Button */
 .btn {
     background: var(--accent-color);
-    color: var(--text-color);
+    color: var(--bg-color);
     padding: .75rem 1.5rem;
     border: none;
     border-radius: 30px;
@@ -190,7 +194,7 @@ nav ul li a:hover {
 
 .btn:hover {
     transform: scale(1.05);
-    background: #bfa634;
+    background: var(--btn-hover);
 }
 
 .cursor {
@@ -222,35 +226,55 @@ h2 {
     font-size: 1.1rem;
     line-height: 1.6;
 }
+.about h2{
+    color: var(--accent-color);
+}
 
-.work-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.works-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     gap: 20px;
-}
-
-.work-item {
-    background: #111;
-    padding: 1rem;
-    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .work-item {
     text-align: center;
-    transition: transform .3s;
-    overflow: hidden;
-}
-
-.work-item img {
+    max-width: 300px;
+  }
+  
+  .work-item img {
     width: 100%;
-    border-radius: 6px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .work-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .work-item p {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+
+  /* Responsive video grid */
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.work-item h3 {
-    margin: 1rem 0 .5rem;
-    color: var(--highlight-color);
+.work-video {
+  width: 300px;
+  max-width: 100%;
 }
 
-.work-item:hover {
-    transform: scale(1.05);
-}
 
 .testimonials .testimonial-slider {
     display: flex;
@@ -387,7 +411,7 @@ body.light-mode #averageRating {
 
 .icon-circle i {
     font-size: 2rem;
-    color: var(--accent-color);
+    color: var(--icon-color);
 }
 
 .contact-box h3 {
@@ -397,7 +421,7 @@ body.light-mode #averageRating {
 
 .contact-box p,
 .contact-box a {
-    color: var(--highlight-color);
+    color: #ffbd39;
     font-size: 1rem;
 }
 
@@ -436,7 +460,7 @@ body.light-mode #contact-form textarea::placeholder {
     position: fixed;
     bottom: 40px;
     right: 40px;
-    background: var(--accent-color);
+    background: var(--icon-color);
     border: none;
     width: 50px;
     height: 50px;
@@ -445,7 +469,7 @@ body.light-mode #contact-form textarea::placeholder {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    color: var(--text-color);
+    color: black;
 }
 
 footer {
@@ -456,12 +480,13 @@ footer {
 
 footer .socials a {
     margin: 0 .5rem;
-    color: var(--accent-color);
+    color: white;
     font-size: 1.5rem;
 }
 
 footer .socials a:hover {
-    color: var(--text-color);
+    color: greenyellow;
+    transition: 0.3s;
 }
 
 .alert {
@@ -574,15 +599,16 @@ a {
 }
 
 body.light-mode .sun-icon {
-    color: #000;
-}
-
-body.light-mode .moon-icon {
+    
     color: #fff;
 }
 
+body.light-mode .moon-icon {
+    color: white;
+}
+
 body.light-mode .switch-btn {
-    background-color: var(--accent-color);
+    background-color: var(--icon-color);
 }
 
 body.light-mode .switch-btn .switch-thumb {

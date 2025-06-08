@@ -13,25 +13,31 @@
 
 <body>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const switchBtn = document.getElementById("themeToggle");
+  document.addEventListener("DOMContentLoaded", () => {
+    const switchBtn = document.getElementById("themeToggle");
 
-      // Load saved theme
-      const savedTheme = localStorage.getItem("theme") || "dark";
-      document.body.classList.toggle("light-mode", savedTheme === "light");
+    // Check localStorage or default to light
+    let savedTheme = localStorage.getItem("theme");
+    if (!savedTheme) {
+      savedTheme = "light";
+      localStorage.setItem("theme", "light");
+    }
 
-      // Set switch thumb position
-      if (savedTheme === "light") {
-        switchBtn.classList.add("active");
-      }
+    const isLight = savedTheme === "light";
 
-      // Toggle theme on click
-      switchBtn.addEventListener("click", () => {
-        const isLight = document.body.classList.toggle("light-mode");
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-      });
+    // Apply theme and toggle switch state
+    document.body.classList.toggle("light-mode", isLight);
+    switchBtn.classList.toggle("active", isLight);
+
+    // Handle toggle click
+    switchBtn.addEventListener("click", () => {
+      const isNowLight = document.body.classList.toggle("light-mode");
+      localStorage.setItem("theme", isNowLight ? "light" : "dark");
+      switchBtn.classList.toggle("active", isNowLight);
     });
-  </script>
+  });
+</script>
+
 
   <!-- Loader -->
   <div id="ftco-loader" class="show fullscreen">
@@ -50,7 +56,7 @@
         <div></div>
         <div></div>
       </div>
-      
+
 
 
       <ul id="nav-links">
@@ -61,10 +67,11 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="switch-btn" id="themeToggle">
-  <i class="fas fa-sun sun-icon"></i>
-  <i class="fas fa-moon moon-icon"></i>
-  <div class="switch-thumb"></div>
-</div>
+        <i class="fas fa-moon moon-icon"></i>
+        <i class="fas fa-sun sun-icon"></i>
+
+        <div class="switch-thumb"></div>
+      </div>
 
     </nav>
   </header>
@@ -84,7 +91,7 @@
 
   <!-- About -->
   <section id="about" class="about">
-    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #00FFFF;" data-aos="fade-up">About Me
+    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; " data-aos="fade-up">About Me
     </h2>
     <p style="max-width: 700px; margin: 0 auto; text-align: center; font-size: 1.2rem; line-height: 1.8;"
       data-aos="fade-up">
@@ -112,28 +119,38 @@
   <!-- Work -->
   <section id="work" class="works">
     <h2 data-aos="fade-up">My Work</h2>
-    <div class="work-gallery">
-      <div class="work-item" data-aos="fade-up" data-aos-delay="100">
-        <a href="#"><img src="assets/thumbnail.png" alt="Project 1" />
-          <h3>Brand Reel – WOW Skin Science</h3>
-        </a>
+    <div class="works-gallery">
+        <div class="work-item" data-aos="fade-up" data-category="trailer">
+          <img src="assets/1.png" alt="Work 1" style="border: 2px solid #059959;">
+
+          <p
+            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Trailer</p>
+        </div>
+        <div class="work-item" data-aos="fade-up" data-category="film">
+          <img src="assets/2.png" alt="Work 2" style="border: 2px solid #059959;">
+          <p
+            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            LongForm Videos</p>
+        </div>
+        <div class="work-item" data-aos="fade-up" data-category="short">
+          <img src="assets/3.png" alt="Work 3" style="border: 2px solid #059959;">
+          <p
+            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            ShortForm Videos</p>
+        </div>
+        <div class="work-item" data-aos="fade-up" data-category="short">
+          <img src="assets/4.png" alt="Work 3" style="border: 2px solid #059959;">
+          <p
+            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+            Personal</p>
+        </div>
       </div>
-      <div class="work-item" data-aos="fade-up" data-aos-delay="200">
-        <a href="#"><img src="assets/thumbnail.png" alt="Project 2" />
-          <h3>Promotional Video – Swiggy</h3>
-        </a>
-      </div>
-      <div class="work-item" data-aos="fade-up" data-aos-delay="300">
-        <a href="#"><img src="assets/thumbnail.png" alt="Project 3" />
-          <h3>CEO Interview – BeerBiceps</h3>
-        </a>
-      </div>
-    </div>
 
   </section>
 
 
-  <center> <a href="assets/Ashish_Resume.pdf" download class="btn" data-aos="fade-up" data-aos-delay="200">Download
+  <center> <a href="Ashish_Anand_Resume.pdf" download class="btn" data-aos="fade-up" data-aos-delay="200">Download
       Resume</a></center>
 
   <!-- Testimonials
@@ -212,7 +229,7 @@
     </p>
     <div class="socials">
       <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.instagram.com/ashish.anand7/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
     <p style="color: white;">&copy;
