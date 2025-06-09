@@ -13,30 +13,30 @@
 
 <body>
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const switchBtn = document.getElementById("themeToggle");
+    document.addEventListener("DOMContentLoaded", () => {
+      const switchBtn = document.getElementById("themeToggle");
 
-    // Check localStorage or default to light
-    let savedTheme = localStorage.getItem("theme");
-    if (!savedTheme) {
-      savedTheme = "light";
-      localStorage.setItem("theme", "light");
-    }
+      // Check localStorage or default to light
+      let savedTheme = localStorage.getItem("theme");
+      if (!savedTheme) {
+        savedTheme = "light";
+        localStorage.setItem("theme", "light");
+      }
 
-    const isLight = savedTheme === "light";
+      const isLight = savedTheme === "light";
 
-    // Apply theme and toggle switch state
-    document.body.classList.toggle("light-mode", isLight);
-    switchBtn.classList.toggle("active", isLight);
+      // Apply theme and toggle switch state
+      document.body.classList.toggle("light-mode", isLight);
+      switchBtn.classList.toggle("active", isLight);
 
-    // Handle toggle click
-    switchBtn.addEventListener("click", () => {
-      const isNowLight = document.body.classList.toggle("light-mode");
-      localStorage.setItem("theme", isNowLight ? "light" : "dark");
-      switchBtn.classList.toggle("active", isNowLight);
+      // Handle toggle click
+      switchBtn.addEventListener("click", () => {
+        const isNowLight = document.body.classList.toggle("light-mode");
+        localStorage.setItem("theme", isNowLight ? "light" : "dark");
+        switchBtn.classList.toggle("active", isNowLight);
+      });
     });
-  });
-</script>
+  </script>
 
 
   <!-- Loader -->
@@ -56,9 +56,6 @@
         <div></div>
         <div></div>
       </div>
-
-
-
       <ul id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -120,54 +117,208 @@
   <section id="work" class="works">
     <h2 data-aos="fade-up">My Work</h2>
     <div class="works-gallery">
-        <div class="work-item" data-aos="fade-up" data-category="trailer">
-          <img src="assets/1.png" alt="Work 1" style="border: 2px solid #059959;">
+      <div class="work-item" data-aos="fade-up" data-category="trailer">
+        <img src="assets/1.png" alt="Work 1" style="border: 2px solid #059959;">
 
-          <p
-            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-            Trailer</p>
-        </div>
-        <div class="work-item" data-aos="fade-up" data-category="film">
-          <img src="assets/2.png" alt="Work 2" style="border: 2px solid #059959;">
-          <p
-            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-            LongForm Videos</p>
-        </div>
-        <div class="work-item" data-aos="fade-up" data-category="short">
-          <img src="assets/3.png" alt="Work 3" style="border: 2px solid #059959;">
-          <p
-            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-            ShortForm Videos</p>
-        </div>
-        <div class="work-item" data-aos="fade-up" data-category="short">
-          <img src="assets/4.png" alt="Work 3" style="border: 2px solid #059959;">
-          <p
-            style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-            Personal</p>
-        </div>
+        <p
+          style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          Trailer</p>
       </div>
-
+      <div class="work-item" data-aos="fade-up" data-category="film">
+        <img src="assets/2.png" alt="Work 2" style="border: 2px solid #059959;">
+        <p
+          style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          LongForm Videos</p>
+      </div>
+      <div class="work-item" data-aos="fade-up" data-category="short">
+        <img src="assets/3.png" alt="Work 3" style="border: 2px solid #059959;">
+        <p
+          style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          ShortForm Videos</p>
+      </div>
+      <div class="work-item" data-aos="fade-up" data-category="personal">
+        <img src="assets/4.png" alt="Work 3" style="border: 2px solid #059959;">
+        <p
+          style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          Personal</p>
+      </div>
+    </div>
   </section>
 
+  <section id="trailer" class="my-works hidden-section">
+    <h2
+      style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      Trailer</h2>
+    <!-- Close All Button -->
+    <div style="display: flex; justify-content: flex-end; padding: 1rem 2rem;">
+      <button
+        onclick="document.querySelectorAll('.my-works.hidden-section').forEach(s => s.classList.remove('active-section'))"
+        class="btn" >
+        Close All
+      </button>
+    </div>
+    <div class="video-gallery">
+      <video class="work-video" src="assets/trailer/1.mp4" controls poster="assets/trailer/1.png" style="border: 2px solid #059959;"></video>
+      <video class="work-video" src="assets/trailer/2.mp4" controls poster="assets/trailer/3.png" style="border: 2px solid #059959;"></video>
+      <video class="work-video" src="assets/trailer/4.mp4" controls poster="assets/trailer/2.png" style="border: 2px solid #059959;"></video>
+      <video class="work-video" src="assets/trailer/44.mp4" controls poster="assets/trailer/44.png" style="border: 2px solid #059959;"></video>
+    </div>
+
+    <br><br><br>
+  </section>
+
+  <section id="film" class="my-works hidden-section">
+    <h2
+      style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      LongForm Videos
+    </h2>
+
+    <!-- Close All Button -->
+    <div style="display: flex; justify-content: flex-end; padding: 1rem 2rem;">
+      <button
+        onclick="document.querySelectorAll('.my-works.hidden-section').forEach(s => s.classList.remove('active-section'))"
+        class="btn">
+        Close All
+      </button>
+    </div>
+    <!-- Thumbnail Gallery -->
+    <div class="video-gallery" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+      <!-- Video Thumbnail 1 -->
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://youtu.be/g5UQRImdOvA?si=pEwHmhlusiY-IBGL" target="_blank">
+          <img src="assets/long/1.jpg" alt="Video 1"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">Live 100 Years With Me - Science<br> Behind Reverse Aging Explained</h4>
+      </div>
+
+      <!-- Video Thumbnail 2 -->
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://youtu.be/tOWdLGHqKvc?si=05MZXO9B36E6pbLN" target="_blank">
+          <img src="assets/long/2.jpg" alt="Video 2"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">Artificial Sweeteners: Sweet Solution <br> or Hidden Danger?</h4>
+      </div>
+
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://youtu.be/1hq6981NlH4?si=ylCJe7mesYKBI5R5" target="_blank">
+          <img src="assets/long/3.jpg" alt="Video 2"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">
+          Asli Sanatani Vastu - Acharya Pankit Goyal’s <br> FREE Vastu Guidance | TRS हिंदी 330</h4>
+      </div>
+
+    </div>
+    <br><br><br>
+  </section>
+
+  <section id="short" class="my-works hidden-section">
+    <h2
+      style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      ShortForm Videos
+    </h2>
+
+    <!-- Close All Button -->
+    <div style="display: flex; justify-content: flex-end; padding: 1rem 2rem;">
+      <button
+        onclick="document.querySelectorAll('.my-works.hidden-section').forEach(s => s.classList.remove('active-section'))"
+        class="btn" >
+        Close All
+      </button>
+    </div>
+    <!-- Thumbnail Gallery -->
+    <div class="video-gallery" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+      <!-- Video Thumbnail 1 -->
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://www.instagram.com/reel/C7enqkFPkNh/?igsh=bzR3NDk0czM0YnU5" target="_blank">
+          <img src="assets/sort/1.jpg" alt="Video 1"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">Karan Aujla BeerBiceps Edit
+        </h4>
+      </div>
+
+      <!-- Video Thumbnail 2 -->
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://www.instagram.com/reel/C6RJqKNKMhV/?igsh=bG10cWxyNzdwZHN6" target="_blank">
+          <img src="assets/sort/2.jpg" alt="Video 2"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">Woww Skin Science Brand Reel
+        </h4>
+      </div>
+
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://www.instagram.com/reel/DE2gesfswxO/?igsh=MWFoNHVibXhxZW1oZQ==" target="_blank">
+          <img src="assets/sort/3.jpg" alt="Video 2"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">
+          Dr.Nee Car Video
+        </h4>
+      </div>
+
+      <div class="video-thumbnail" style="text-align: center;">
+        <a href="https://www.instagram.com/reel/DENSgVZz5eh/?igsh=MWlvZ3FmMzVyZm9wYw==" target="_blank">
+          <img src="assets/sort/4.jpg" alt="Video 2"
+            style="width: 300px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 2px solid #059959;">
+        </a>
+        <h4 style="margin-top: 10px; color: white;">
+          Dr. Nene Car Video 2
+        </h4>
+      </div>
+
+    </div>
+    <br><br><br>
+  </section>
+
+  <section id="personal" class="my-works hidden-section">
+    <h2
+      style="color: orange; font-weight: bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      Personal</h2>
+    <!-- Close All Button -->
+    <div style="display: flex; justify-content: flex-end; padding: 1rem 2rem;">
+      <button
+        onclick="document.querySelectorAll('.my-works.hidden-section').forEach(s => s.classList.remove('active-section'))"
+        class="btn" >
+        Close All
+      </button>
+    </div>
+    <div class="video-gallery">
+      <video class="work-video" src="assets/personal/1.mp4" controls poster="assets/personal/1.jpg" style="border: 2px solid #059959;"></video>
+      <video class="work-video" src="assets/personal/2.mp4" controls poster="assets/personal/2.jpg" style="border: 2px solid #059959;"></video>
+      <video class="work-video" src="assets/personal/3.mp4" controls poster="assets/personal/3.jpg" style="border: 2px solid #059959;"></video>
+      <video class="work-video" src="assets/personal/4.mp4" controls poster="assets/personal/4.jpg" style="border: 2px solid #059959;"></video>
+    </div>
+
+    <br><br><br>
+  </section>
 
   <center> <a href="Ashish_Anand_Resume.pdf" download class="btn" data-aos="fade-up" data-aos-delay="200">Download
       Resume</a></center>
+  <script>
+    document.querySelectorAll(".work-item").forEach(item => {
+      item.addEventListener("click", () => {
+        const category = item.getAttribute("data-category");
 
-  <!-- Testimonials
-  <section id="testimonials" class="testimonials">
-    <h2 data-aos="fade-up">Client Testimonials</h2>
-    <div class="testimonial-slider" data-aos="fade-up" data-aos-delay="100">
-      <div class="testimonial-item">
-        <p>“Working with Ashish was seamless – he delivered high-quality edits on time!”</p>
-        <h4>- Rajesh, Swiggy</h4>
-      </div>
-      <div class="testimonial-item">
-        <p>“Exceptional motion graphics and storytelling!”</p>
-        <h4>- Priya, WOW Skin Science</h4>
-      </div>
-    </div>
-  </section> -->
+        // Hide all video sections
+        document.querySelectorAll(".my-works.hidden-section").forEach(section => {
+          section.classList.remove("active-section");
+        });
 
+        // Show the selected section
+        const selected = document.getElementById(category);
+        if (selected) {
+          selected.classList.add("active-section");
+          selected.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  </script>
   <!-- Contact -->
   <section id="contact" class="contact">
     <h2 data-aos="fade-up">Contact Me</h2>
@@ -180,34 +331,57 @@
       <div class="contact-box">
         <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
         <h3>Phone</h3>
-        <p><a href="tel:+911234567890">+91 1234567890</a></p>
+        <p><a href="tel:+1234">+91 1234567890</a></p>
       </div>
       <div class="contact-box">
         <div class="icon-circle"><i class="fas fa-paper-plane"></i></div>
         <h3>Email</h3>
-        <p><a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></p>
+        <p><a href="mailto:ashishanandwork@gmail.com">ashishanandwork@gmail.com</a></p>
       </div>
     </div>
-    <form id="contact-form" data-aos="fade-up" data-aos-delay="200">
+    <form action="https://formspree.io/f/xovwenqk" method="POST" id="contact-form" data-aos="fade-up" data-aos-delay="200">
       <input type="text" placeholder="Your Name" name="name" required />
       <input type="email" placeholder="Your Email" name="email" required />
       <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Send Message</button>
+      <center>
+      <p id="success-msg" style="color: #00bcd4; display: none; font-weight: bold;">Thanks! Your message has been sent.</p></center>
     </form>
   </section>
+  <script>
+    document.querySelector("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = this;
+      const data = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById("success-msg").style.display = "block";
+          form.reset();
+        } else {
+          alert("There was an issue sending your message. Please try again.");
+        }
+      });
+    });
+  </script>
   <!-- Rating -->
   <section id="rating-section" class="ftco-section">
     <div class="container">
       <div class="row justify-content-center mb-5 pb-5">
         <div class="col-md-7 heading-section text-center ftco-animate">
           <h1 class="big big-2" data-aos="fade-up">Rate My Portfolio</h1>
-          <h2 class="mb-4" data-aos="fade-up">Please rate your experience</h2>
+          <h2 class="mb-4" >Please rate your experience</h2>
           <div class="star-rating">
-            <span class="fa fa-star" data-rating="1" data-aos="fade-up"></span>
-            <span class="fa fa-star" data-rating="2" data-aos="fade-up"></span>
-            <span class="fa fa-star" data-rating="3" data-aos="fade-up"></span>
-            <span class="fa fa-star" data-rating="4" data-aos="fade-up"></span>
-            <span class="fa fa-star" data-rating="5" data-aos="fade-up"></span>
+            <span class="fa fa-star" data-rating="1" ></span>
+            <span class="fa fa-star" data-rating="2" ></span>
+            <span class="fa fa-star" data-rating="3" ></span>
+            <span class="fa fa-star" data-rating="4" ></span>
+            <span class="fa fa-star" data-rating="5" ></span>
           </div>
           <p id="rating-result" class="mt-3" data-aos="fade-up">No rating yet</p>
           <p id="averageRating" class="mt-3" data-aos="fade-up">Total Ratings: Loding... </p>
@@ -238,8 +412,6 @@
         href="https://www.linkedin.com/in/aritra-deb-bb16131a3/" target="_blank"
         style="color: #ffbd39; font-weight: bold;">Aritra Deb</a>
     </p>
-
-
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -368,8 +540,6 @@
         });
       });
 
-      // Function to update total ratings
-      // Define averageRatingElem and get reference to the HTML element
       const averageRatingElem = document.getElementById("averageRating");
 
       function updateAverageRating() {
@@ -405,11 +575,7 @@
           averageRatingElem.textContent = "Total Rating: Error loading"; // Display error message in UI if fetching fails
         });
       }
-
-      // Load average rating initially
       updateAverageRating();
-
-
     });
 
 
@@ -481,10 +647,6 @@
         console.error("Error hiding loader:", err);
       }
     });
-
-
-
-
   </script>
 </body>
 
