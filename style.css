@@ -45,33 +45,88 @@ button {
     cursor: pointer;
 }
 
-/* Loader */
+/* Loader Container */
 #ftco-loader {
-    position: fixed;
-    inset: 0;
-    background: #0f0f0f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-#ftco-loader .circular {
-    animation: rotate 1.2s linear infinite;
-}
-
-#ftco-loader .path {
-    stroke-dasharray: 150, 200;
-    stroke-dashoffset: -10;
-    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
-    stroke-linecap: round;
+#ftco-loader.show {
+  visibility: visible;
+  opacity: 1;
 }
 
 #ftco-loader.hide {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
+
+/* SVG Spinner */
+.circular {
+  animation: rotate 2s linear infinite;
+  width: 60px;
+  height: 60px;
+}
+
+.path-bg {
+  stroke: #444444;
+  stroke-opacity: 0.3;
+}
+
+/* Animated Stroke */
+.path {
+  stroke: #00f2ff;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite, colorShift 6s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    stroke: #00b7ff;
+  }
+  25% {
+    stroke: red;
+  }
+  50% {
+    stroke: white;
+  }
+  75% {
+    stroke: greenyellow;
+  }
+  100% {
+    stroke: yellow;
+  }
+}
+
+
 
 /* Header/Nav */
 header {
@@ -301,9 +356,12 @@ h2 {
 }
 
 .active-section {
-  max-height: 1000px;
+  max-height: 100vh; /* Use viewport height instead of a fixed 1000px */
   opacity: 1;
+  overflow: auto;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
+
 
 
 
